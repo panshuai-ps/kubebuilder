@@ -222,7 +222,7 @@ func (blder *Builder) doWatch() error {
 	if err != nil {
 		return err
 	}
-	src := &source.Kind{Type: typeForSrc}
+	src := &source.Kind{Type: typeForSrc} // Start方法 informer
 	hdler := &handler.EnqueueRequestForObject{}
 	allPredicates := append(blder.globalPredicates, blder.forInput.predicates...)
 	if err := blder.ctrl.Watch(src, hdler, allPredicates...); err != nil {
